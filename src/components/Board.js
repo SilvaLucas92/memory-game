@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Flex, Grid } from '@chakra-ui/react';
 import OneCell from './OneCell/OneCell';
 
-const Board = ({ list, setList, prev, setPrev }) => {
-  
+const Board = ({ list, setList, prev, setPrev, winner, checkWinner }) => {
+
   const check = (index) => {
     if(list[index].id == list[prev].id) {
       list[index].stat = 'visible'
@@ -26,7 +26,10 @@ const Board = ({ list, setList, prev, setPrev }) => {
         setPrev(-1);
       }, 1000)
     }
+    checkWinner(list)
   }
+  console.log(winner)
+
   const handleClick = (id) => {
     if(prev === -1) {
       list[id].stat = 'visible';
@@ -36,6 +39,8 @@ const Board = ({ list, setList, prev, setPrev }) => {
       check(id)
     }
   }
+
+
     return (
     <Flex 
     justify='center' 
