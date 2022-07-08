@@ -51,13 +51,12 @@ function App() {
     <VStack 
     mx='auto' 
     w='90%' 
-    h='100vh' 
     justify='center' 
     spacing={{base:'40px', md:'50px', xl:'60px'}} 
     textAlign='center'
+    mt='20px'
     >
       <Heading opacity={0.8} size='4xl'>Memory Game</Heading>
-      <Divider />
       {winner && <Text
                   textAlign='center'
                   color='red'
@@ -66,7 +65,6 @@ function App() {
                   > Congratulations, you' re the Winner!!
                   </Text>}
       <Board setList={setList} list={ list } prev={prev} setPrev={setPrev} winner={winner} checkWinner={checkWinner} />
-      <Divider />
       <Button 
       onClick={ setItems } 
       colorScheme='red' 
